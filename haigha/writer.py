@@ -218,7 +218,7 @@ class Writer(object):
     def _field_int(self, val, short_pack=Struct('>h').pack,
                    int_pack=Struct('>i').pack, long_pack=Struct('>q').pack):
         if -2 ** 15 <= val < 2 ** 15:
-            self._output_buffer.append('s')
+            self._output_buffer.append('U')
             self._output_buffer.extend(short_pack(val))
         elif -2 ** 31 <= val < 2 ** 31:
             self._output_buffer.append('I')
